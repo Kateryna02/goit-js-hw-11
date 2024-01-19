@@ -3,8 +3,8 @@
 const formBox = document.querySelector(".feedback-form");
 
 formBox.addEventListener('input', (event) => {
-    const emailValue = formBox.elements.email.value;
-    const messageValue = formBox.elements.message.value;
+    const emailValue = formBox.elements.email.value.trim();
+    const messageValue = formBox.elements.message.value.trim();
     const formInfo = {
         formEmail: emailValue,
         formMassage: messageValue,
@@ -15,8 +15,8 @@ formBox.addEventListener('input', (event) => {
 });
 formBox.addEventListener('submit', (event) => {
     event.preventDefault();
-    const emailValue = formBox.elements.email.value;
-    const messageValue = formBox.elements.message.value;
+    const emailValue = formBox.elements.email.value.trim();
+    const messageValue = formBox.elements.message.value.trim();
     const formInfo = {
         formEmail: emailValue,
         formMassage: messageValue,
