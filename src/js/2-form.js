@@ -21,7 +21,7 @@ formBox.addEventListener('submit', (event) => {
         formEmail: emailValue,
         formMassage: messageValue,
     }
-    if (!emailValue && !messageValue) {
+    if (!emailValue || !messageValue) {
         alert('Please fill in the email and massage fields');
     }
     else {
