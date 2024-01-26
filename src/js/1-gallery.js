@@ -10,10 +10,6 @@ import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
 
-
-
-
-
 const modal = new SimpleLightbox('.gallery a', {
     captionDelay: 250,
     captions: true,
