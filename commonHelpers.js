@@ -1,7 +1,26 @@
-import"./assets/index-b1a9e25f.js";import{S as i}from"./assets/vendor-3b6544c1.js";const e=[{preview:"https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820__480.jpg",original:"https://cdn.pixabay.com/photo/2019/05/14/16/43/rchids-4202820_1280.jpg",description:"Hokkaido Flower"},{preview:"https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677__340.jpg",original:"https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677_1280.jpg",description:"Container Haulage Freight"},{preview:"https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785__340.jpg",original:"https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785_1280.jpg",description:"Aerial Beach View"},{preview:"https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619__340.jpg",original:"https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619_1280.jpg",description:"Flower Blooms"},{preview:"https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334__340.jpg",original:"https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334_1280.jpg",description:"Alpine Mountains"},{preview:"https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571__340.jpg",original:"https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571_1280.jpg",description:"Mountain Lake Sailing"},{preview:"https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272__340.jpg",original:"https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272_1280.jpg",description:"Alpine Spring Meadows"},{preview:"https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255__340.jpg",original:"https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255_1280.jpg",description:"Nature Landscape"},{preview:"https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843__340.jpg",original:"https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg",description:"Lighthouse Coast Sea"}],t=document.querySelector(".gallery"),n=({preview:p,original:o,description:a})=>`
+import"./assets/index-f0d39515.js";import{S as c,i as m}from"./assets/vendor-9310f15c.js";const p=new c(".gallery a",{captionDelay:250,captions:!0,captionsData:"alt",captionPosition:"bottom"}),t=document.querySelector(".gallery"),d=({webformatURL:a,largeImageURL:e,tags:o,likes:n,views:s,comments:l,downloads:r})=>`
     <li class="gallery-item">
-      <a class="gallery-link" href="${o}">
-        <img class="gallery-image" src="${p}" alt="${a}" data-test="${o}">
-      </a>
-    </li>`,c=p=>{const o=p.map(n).join("");return t.innerHTML=o,t};c(e);new i(".gallery a",{captionDelay:250,captions:!0,captionsData:"alt",captionPosition:"bottom"});
+        <a class="gallery-link" href="${e}">
+            <img class="gallery-image" src="${a}" alt="${o}" data-test="${e}">
+        </a>
+        <div class="image-details">
+           
+            <div class="info-container">
+                <span class="info-label">Likes:</span>
+                <span class="info-value">${n}</span>
+            </div>
+            <div class="info-container">
+                <span class="info-label">Views:</span>
+                <span class="info-value">${s}</span>
+            </div>
+            <div class="info-container">
+                <span class="info-label">Comments:</span>
+                <span class="info-value">${l}</span>
+            </div>
+            <div class="info-container">
+                <span class="info-label">Downloads:</span>
+                <span class="info-value">${r}</span>
+            </div>
+        </div>
+    </li>`,f=a=>{console.log(a);const e=a.map(d).join("");t.innerHTML=e,p.refresh()},g=document.getElementById("form"),i=document.querySelector(".loader");g.addEventListener("submit",h);function h(a){a.preventDefault(),i.classList.remove("is-hidden"),t.innerHTML="";const e=a.currentTarget.elements.search.value.trim();e!==""&&u(e)}function u(a){const e="42039867-09e41a1320e593858871044dc",n=`https://pixabay.com/api/?${new URLSearchParams({key:e,q:a,image_type:"photo",orientation:"horizontal",safesearch:"true"})}`;return fetch(n).then(s=>s.json()).then(s=>{console.log(s.hits),s.hits.length>0?f(s.hits):m.error({title:"error",message:"Sorry, there are no images matching your search query. Please try again!",position:"topRight",messageColor:"white",backgroundColor:"#EF4040"})}).catch(s=>{console.error("Error fetching data:",s)}).finally(()=>{i.classList.add("is-hidden")})}
 //# sourceMappingURL=commonHelpers.js.map
