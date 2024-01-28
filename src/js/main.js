@@ -48,33 +48,33 @@ const galleryItem = ({ webformatURL, largeImageURL, tags, likes, views, comments
             </div>
         </div>
     </li>`;
-const gallery = (hits)  => {
+const gallery = (hits) => {
     console.log(hits);
     const galleryItemHtml = hits.map(galleryItem).join('');
     galleryContainer.innerHTML = galleryItemHtml;
     modal.refresh();
-   
+
 };
 
 
 const form = document.getElementById('form');
 const loader = document.querySelector('.loader');
 
-form.addEventListener('submit', onSubmit) 
+form.addEventListener('submit', onSubmit)
 function onSubmit(e) {
-    
+
     e.preventDefault();
     loader.classList.remove('is-hidden');
     galleryContainer.innerHTML = "";
     const keyword = e.currentTarget.elements.search.value.trim();
-        if (keyword !== '') {
-            fetchImages(keyword);
-        } else {
-            
-          
-        }
-        
-    };
+    if (keyword !== '') {
+        fetchImages(keyword);
+    } else {
+
+
+    }
+
+};
 
 function fetchImages(keyword) {
     const key = '42039867-09e41a1320e593858871044dc';
@@ -84,13 +84,13 @@ function fetchImages(keyword) {
         image_type: 'photo',
         orientation: 'horizontal',
         safesearch: 'true'
-   })
+    })
     const url = `https://pixabay.com/api/?${params}`;
 
     return fetch(url)
         .then(response => response.json())
         .then(data => {
-          console.log(data.hits);
+            console.log(data.hits);
             if (data.hits.length > 0) {
                 gallery(data.hits);
             } else {
@@ -100,8 +100,8 @@ function fetchImages(keyword) {
                     position: 'topRight',
                     messageColor: 'white',
                     backgroundColor: '#EF4040',
-                    
-               })
+
+                })
             }
         })
         .catch(error => {
@@ -110,7 +110,5 @@ function fetchImages(keyword) {
             loader.classList.add('is-hidden');
         });
 }
-
-
 
 
