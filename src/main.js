@@ -110,5 +110,3 @@ function fetchImages(keyword) {
             loader.classList.add('is-hidden');
         });
 }
-
-
